@@ -888,6 +888,30 @@ TDV.PlayerAPI.defineScript({ "definitions": [
   }
  },
  {
+  "class": "Video",
+  "thumbnailUrl": "media/video_E045C316_F4FC_2012_41DE_36747AB46079_t.jpg",
+  "label": "Columbia River 1001 Drone Video 720p",
+  "video": {
+   "height": 1080,
+   "class": "VideoResource",
+   "mp4Url": "media/video_E045C316_F4FC_2012_41DE_36747AB46079.mp4",
+   "width": 1920
+  },
+  "width": 1920,
+  "id": "video_E045C316_F4FC_2012_41DE_36747AB46079",
+  "loop": false,
+  "height": 1080,
+  "scaleMode": "fit_inside"
+ },
+ {
+  "class": "VideoPlayer",
+  "displayPlaybackBar": true,
+  "id": "MainViewerVideoPlayer",
+  "viewerArea": "this.MainViewer",
+  "buttonRestart": "this.IconButton_4EEC4AA5_5E2B_1FC1_41CD_C80D0BF61440",
+  "buttonPause": "this.IconButton_61E428A1_4578_EA6B_41C7_D3AB6346672D"
+ },
+ {
   "class": "PlayList",
   "id": "mainPlayList",
   "items": [
@@ -950,8 +974,15 @@ TDV.PlayerAPI.defineScript({ "definitions": [
     "player": "this.MainViewerPanoramaPlayer",
     "media": "this.panorama_FC11C58F_F3BC_60F2_41CD_2537B70420D4",
     "camera": "this.panorama_FC11C58F_F3BC_60F2_41CD_2537B70420D4_camera",
-    "begin": "this.setEndToItemIndex(this.mainPlayList, 7, 0)",
-    "end": "this.trigger('tourEnded')"
+    "begin": "this.setEndToItemIndex(this.mainPlayList, 7, 8)"
+   },
+   {
+    "class": "VideoPlayListItem",
+    "player": "this.MainViewerVideoPlayer",
+    "media": "this.video_E045C316_F4FC_2012_41DE_36747AB46079",
+    "begin": "this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 8, 0)",
+    "end": "this.trigger('tourEnded')",
+    "start": "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.changeBackgroundWhilePlay(this.mainPlayList, 8, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 8, this.video_E045C316_F4FC_2012_41DE_36747AB46079)"
    }
   ]
  },
@@ -1024,7 +1055,16 @@ TDV.PlayerAPI.defineScript({ "definitions": [
  },
  {
   "class": "PlayList",
-  "id": "ThumbnailList_881F2652_97D2_0B21_41E2_7C5FB1597965_playlist"
+  "id": "ThumbnailList_881F2652_97D2_0B21_41E2_7C5FB1597965_playlist",
+  "items": [
+   {
+    "class": "VideoPlayListItem",
+    "player": "this.MainViewerVideoPlayer",
+    "media": "this.video_E045C316_F4FC_2012_41DE_36747AB46079",
+    "begin": "this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer)",
+    "start": "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.changeBackgroundWhilePlay(this.ThumbnailList_881F2652_97D2_0B21_41E2_7C5FB1597965_playlist, 0, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.ThumbnailList_881F2652_97D2_0B21_41E2_7C5FB1597965_playlist, 0, this.video_E045C316_F4FC_2012_41DE_36747AB46079)"
+   }
+  ]
  },
  {
   "class": "PlayList",
@@ -1089,7 +1129,14 @@ TDV.PlayerAPI.defineScript({ "definitions": [
     "player": "this.MainViewerPanoramaPlayer",
     "media": "this.panorama_FC11C58F_F3BC_60F2_41CD_2537B70420D4",
     "camera": "this.panorama_FC11C58F_F3BC_60F2_41CD_2537B70420D4_camera",
-    "begin": "this.setEndToItemIndex(this.ThumbnailList_6618B1BF_44D8_DA57_41A6_0D2589AAC96B_playlist, 7, 0)"
+    "begin": "this.setEndToItemIndex(this.ThumbnailList_6618B1BF_44D8_DA57_41A6_0D2589AAC96B_playlist, 7, 8)"
+   },
+   {
+    "class": "VideoPlayListItem",
+    "player": "this.MainViewerVideoPlayer",
+    "media": "this.video_E045C316_F4FC_2012_41DE_36747AB46079",
+    "begin": "this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer); this.setEndToItemIndex(this.ThumbnailList_6618B1BF_44D8_DA57_41A6_0D2589AAC96B_playlist, 8, 0)",
+    "start": "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.changeBackgroundWhilePlay(this.ThumbnailList_6618B1BF_44D8_DA57_41A6_0D2589AAC96B_playlist, 8, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.ThumbnailList_6618B1BF_44D8_DA57_41A6_0D2589AAC96B_playlist, 8, this.video_E045C316_F4FC_2012_41DE_36747AB46079)"
    }
   ]
  },
